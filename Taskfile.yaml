@@ -1,0 +1,10 @@
+version: 3
+
+tasks:
+  "build":
+    cmds:
+      - go mod tidy
+      - gofumpt -l -w .
+      - go build -o dist/ffi.so -buildmode=c-shared cmd/ffi/ffi.go
+    sources:
+      - "**/*.go"
